@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Clause 11: Relationship between SPDX Elements Information - specification v2.2.2</title>
+    <title>Clause 11: Relationship between SPDX Elements Information - specification v2.3.0</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
         <link href="../css/style.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -32,7 +33,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> specification v2.2.2
+          <a href=".." class="icon icon-home"> specification v2.3.0
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -43,10 +44,6 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="..">Copyright</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../foreword/">Foreword</a>
                 </li>
               </ul>
               <ul>
@@ -168,6 +165,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-to-use/">Annex K: How To Use SPDX in Different Scenarios</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../bibliography/">Bibliography</a>
                 </li>
               </ul>
@@ -178,7 +179,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">specification v2.2.2</a>
+          <a href="..">specification v2.3.0</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -423,6 +424,16 @@
 <td>An APPLICATION <code>foo.exe</code> has prerequisite or dependency on <code>bar.dll</code></td>
 </tr>
 <tr>
+<td>REQUIREMENT_DESCRIPTION_FOR</td>
+<td>Is to be used when SPDXRef-A describes, illustrates, or specifies a requirement statement for SPDXRef-B.</td>
+<td>A PDF document that describes a list of disallowed licences to inherit in certain build-subtrees.</td>
+</tr>
+<tr>
+<td>SPECIFICATION_FOR</td>
+<td>Is to be used when SPDXRef-A describes, illustrates, or defines a design specification for SPDXRef-B.</td>
+<td>A UML diagram illustrating a directed requirement graph for a discernible set of software components in a software package.</td>
+</tr>
+<tr>
 <td>OTHER</td>
 <td>Is to be used for a relationship which has not been defined in the formal SPDX specification. A description of the relationship should be included in the Relationship comments field.</td>
 <td></td>
@@ -449,7 +460,7 @@
 </tr>
 <tr>
 <td>Format</td>
-<td>["DocumentRef-"[idstring]":"]SPDXID \&lt;relationship> ["DocumentRef-"[idstring]":"]<code>SPDXID</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where "DocumentRef-"<code>[idstring]</code>":" is an optional reference to an external SPDX document as described in <a href="../document-creation-information/#6.6">6.6</a><br>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in <a href="../document-creation-information/#6.3">6.3</a>, <a href="../package-information/#7.2">7.2</a>, <a href="../file-information/#8.2">8.2</a>.<br>where <code>&lt;relationship&gt;</code> is one of the documented relationship types in Table 68.<br>where <code>NONE</code> can be used to explicitly indicate there are NO other relationships.<br>where <code>NOASSERTION</code> can be used to explicitly indicate it is not clear if there are relationships that may apply or not.</td>
+<td>["DocumentRef-"[idstring]":"]SPDXID \&lt;relationship&gt; ["DocumentRef-"[idstring]":"]<code>SPDXID</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where "DocumentRef-"<code>[idstring]</code>":" is an optional reference to an external SPDX document as described in <a href="../document-creation-information/#6.6">6.6</a><br>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in <a href="../document-creation-information/#6.3">6.3</a>, <a href="../package-information/#7.2">7.2</a>, <a href="../file-information/#8.2">8.2</a>.<br>where <code>&lt;relationship&gt;</code> is one of the documented relationship types in Table 68.<br>where <code>NONE</code> can be used to explicitly indicate there are NO other relationships.<br>where <code>NOASSERTION</code> can be used to explicitly indicate it is not clear if there are relationships that may apply or not.</td>
 </tr>
 </tbody>
 </table>
@@ -581,6 +592,7 @@
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

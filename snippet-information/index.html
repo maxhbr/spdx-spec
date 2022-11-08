@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Clause 9: Snippet Information - specification v2.2.2</title>
+    <title>Clause 9: Snippet Information - specification v2.3.0</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
         <link href="../css/style.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -32,7 +33,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> specification v2.2.2
+          <a href=".." class="icon icon-home"> specification v2.3.0
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -43,10 +44,6 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="..">Copyright</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../foreword/">Foreword</a>
                 </li>
               </ul>
               <ul>
@@ -258,6 +255,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-to-use/">Annex K: How To Use SPDX in Different Scenarios</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../bibliography/">Bibliography</a>
                 </li>
               </ul>
@@ -268,7 +269,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">specification v2.2.2</a>
+          <a href="..">specification v2.3.0</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -517,24 +518,20 @@
 <h2 id="95-snippet-concluded-license-field">9.5 Snippet concluded license field <a name="9.5"></a></h2>
 <h3 id="951-description">9.5.1 Description</h3>
 <p>This field contains the license the SPDX document creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:</p>
-<p>A valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>.</p>
-<p><code>NONE</code> should be used if there is no licensing information from which to conclude a license for the snippet.</p>
+<ul>
+<li>A valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>.</li>
+<li><code>NONE</code> should be used if there is no licensing information from which to conclude a license for the snippet.</li>
+<li>
 <p><code>NOASSERTION</code> should be used if for the snippet:</p>
 <ul>
-<li>
-<p>the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;</p>
-</li>
-<li>
-<p>the SPDX document creator is uncomfortable concluding a license, despite some license information being available;</p>
-</li>
-<li>
-<p>the SPDX document creator has made no attempt to determine a Concluded License;</p>
-</li>
-<li>
-<p>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</p>
+<li>the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;</li>
+<li>the SPDX document creator is uncomfortable concluding a license, despite some license information being available;</li>
+<li>the SPDX document creator has made no attempt to determine a Concluded License;</li>
+<li>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</li>
+</ul>
 </li>
 </ul>
-<p>If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see <a href="#9.7">9.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (see <a href="#9.7">9.7</a>) is preferred. The metadata for the snippet concluded license field is shown in Table 56.</p>
+<p>If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see <a href="#9.7">9.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (see <a href="#9.7">9.7</a>) is preferred. If the Snippet Concluded License field is not present for a snippet, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the snippet concluded license field is shown in Table 56.</p>
 <p><strong>Table 56 — Metadata for the snippet concluded license field</strong></p>
 <table>
 <thead>
@@ -546,11 +543,11 @@
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -591,19 +588,18 @@
 <h3 id="961-description">9.6.1 Description</h3>
 <p>This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.</p>
 <p>The options to populate this field are limited to:</p>
-<p>The SPDX License List short form identifier, if the license is on the SPDX License List;
-A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if the license is not on the SPDX License List;</p>
-<p><code>NONE</code>, if the snippet contains no license information whatsoever; or</p>
+<ul>
+<li>A valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>.</li>
+<li><code>NONE</code>, if the snippet contains no license information whatsoever; or</li>
+<li>
 <p><code>NOASSERTION</code>, if:</p>
 <ul>
-<li>
-<p>the SPDX document creator has made no attempt to determine this field; or</p>
-</li>
-<li>
-<p>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</p>
+<li>the SPDX document creator has made no attempt to determine this field; or</li>
+<li>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</li>
+</ul>
 </li>
 </ul>
-<p>If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in snippet field is shown in Table 57.</p>
+<p>If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. If the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the license information in snippet field is shown in Table 57.</p>
 <p><strong>Table 57 — Metadata for the license information in snippet field</strong></p>
 <table>
 <thead>
@@ -623,7 +619,7 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 </tr>
 <tr>
 <td>Format</td>
-<td><code>&lt;SPDX License Expression&gt;</code> |<br>["DocumentRef-"<code>[idstring]</code>:"]"LicenseRef-"[idstring] |<br>| <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression<br>as defined in Annex <a href="../SPDX-license-expressions/">D</a>.<br>DocumentRef-"<code>[idstring]</code>: is an optional reference to an external SPDX<br>document as described in <a href="../document-creation-information/#6.6">6.6</a><br><code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</td>
+<td><code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -698,7 +694,7 @@ The concluded license information was found in the COPYING.txt file in package x
 <p>any text relating to a copyright notice, even if not complete;</p>
 <p><code>NONE</code>, if the snippet contains no copyright information whatsoever; or</p>
 <p><code>NOASSERTION</code>, if the SPDX document creator has not examined the contents of the actual snippet or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).</p>
-<p>The metadata for the snippet copyright text field is shown in Table 59.</p>
+<p>If the Snippet Copyright Text field is not present for a snippet, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the snippet copyright text field is shown in Table 59.</p>
 <p><strong>Table 59 — Metadata for the snippet copyright text field</strong></p>
 <table>
 <thead>
@@ -710,11 +706,11 @@ The concluded license information was found in the COPYING.txt file in package x
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -916,6 +912,7 @@ software developed by the AT&amp;T.
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

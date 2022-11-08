@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Clause 7: Package Information - specification v2.2.2</title>
+    <title>Clause 7: Package Information - specification v2.3.0</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
         <link href="../css/style.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -32,7 +33,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> specification v2.2.2
+          <a href=".." class="icon icon-home"> specification v2.3.0
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -43,10 +44,6 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="..">Copyright</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../foreword/">Foreword</a>
                 </li>
               </ul>
               <ul>
@@ -310,6 +307,46 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#724-primary-package-purpose-field">7.24 Primary Package Purpose field </a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#7241-description">7.24.1 Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7242-intent">7.24.2 Intent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7243-examples">7.24.3 Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#725-release-date">7.25 Release Date </a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#7251-description">7.25.1 Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7252-intent">7.25.2 Intent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7253-examples">7.25.3 Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#726-built-date">7.26 Built Date </a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#7261-description">7.26.1 Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7262-intent">7.26.2 Intent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7263-examples">7.26.3 Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#727-valid-until-date">7.27 Valid Until Date </a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#7271-description">7.27.1 Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7272-intent">7.27.2 Intent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7273-examples">7.27.3 Examples</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -378,6 +415,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-to-use/">Annex K: How To Use SPDX in Different Scenarios</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../bibliography/">Bibliography</a>
                 </li>
               </ul>
@@ -388,7 +429,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">specification v2.2.2</a>
+          <a href="..">specification v2.3.0</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -405,7 +446,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="7-package-information-section">7 Package information section</h1>
+<p>If the SPDX information describes a package, the following fields shall be included per package.</p>
 <h2 id="71-package-name-field">7.1 Package name field <a name="7.1"></a></h2>
+<p>The existence of the Package name fields indicates the existence of package information in the SPDX information. Hence in order to describe package information, this field is mandatory.</p>
 <h3 id="711-description">7.1.1 Description</h3>
 <p>Identify the full name of the package as given by the Package Originator (<a href="#7.6">7.6</a>). The metadata for the package name field is shown in Table 13.</p>
 <p><strong>Table 13 — Metadata for the package name field</strong></p>
@@ -739,7 +782,7 @@
 </tr>
 <tr>
 <td>Format</td>
-<td>Uniform resource locator | VCS location | <code>NONE</code> | <code>NOASSERTION</code><br><br>For version-controlled files, a VCS location is similar to a URL and has the following syntax:<br><br><code>&lt;vcs_tool&gt;+&lt;transport&gt;://&lt;host_name&gt;[/&lt;path_to_repository&gt;][@&lt;revision_tag_or_branch&gt;][#&lt;sub_path&gt;]</code><br><br>This VCS location compact notation (inspired and mostly adopted from <a href="https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support">pip</a> as of 2015-02-20) supports referencing locations in version control systems such as <a href="https://git-scm.com/">Git</a>, <a href="https://www.mercurial-scm.org/">Mercurial</a>, <a href="https://subversion.apache.org/">Subversion</a> and <a href="http://bazaar.canonical.com/">Bazaar</a>, and specifies the type of VCS tool using url prefixes: <code>git+</code>, <code>hg+</code>, <code>bzr+</code>, <code>svn+</code> and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the <code>@</code> delimiter for commits and the <code>#</code> delimiter for sub-paths.<br><br>Using user names and password in the <code>&lt;host_name&gt;</code> is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in <code>&lt;host_name&gt;</code>, <code>&lt;path_to_repository&gt;</code> are not significant. Leading and trailing slashes in <code>&lt;sub_path&gt;</code> are not significant.</td>
+<td>Uniform resource locator | VCS location | <code>NONE</code> | <code>NOASSERTION</code><br><br>For version-controlled files, a VCS location is similar to a URL and has the following syntax:<br><br><code>&lt;vcs_tool&gt;+&lt;transport&gt;://&lt;host_name&gt;[/&lt;path_to_repository&gt;][@&lt;revision_tag_or_branch&gt;][#&lt;sub_path&gt;]</code><br><br>For git, <code>&lt;revision_tag_or_branch&gt;</code> is a <code>&lt;rev&gt;</code> as described by <a href="https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitrevisions.html">gitrevisions(1)</a>. It is RECOMMENDED to use the unambiguous <code>refs/heads/&lt;branch&gt;</code> or <code>refs/tags/&lt;tag&gt;</code>, rather than only <code>&lt;branch&gt;</code> or <code>&lt;tag&gt;</code>, in order to prevent issues caused by shadowing. Formats that are local to the client (<code>...@...</code> and <code>:[&lt;n&gt;:]&lt;path&gt;</code>) or involve regular expressions (<code>&lt;rev&gt;^{/&lt;text&gt;}</code> and <code>:/&lt;text&gt;</code>) SHOULD NOT be used.<br><br>This VCS location compact notation (inspired and mostly adopted from <a href="https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support">pip</a> as of 2015-02-20) supports referencing locations in version control systems such as <a href="https://git-scm.com/">Git</a>, <a href="https://www.mercurial-scm.org/">Mercurial</a>, <a href="https://subversion.apache.org/">Subversion</a> and <a href="http://bazaar.canonical.com/">Bazaar</a>, and specifies the type of VCS tool using url prefixes: <code>git+</code>, <code>hg+</code>, <code>bzr+</code>, <code>svn+</code> and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the <code>@</code> delimiter for commits and the <code>#</code> delimiter for sub-paths.<br><br>Using user names and password in the <code>&lt;host_name&gt;</code> is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in <code>&lt;host_name&gt;</code>, <code>&lt;path_to_repository&gt;</code> are not significant. Leading and trailing slashes in <code>&lt;sub_path&gt;</code> are not significant.</td>
 </tr>
 </tbody>
 </table>
@@ -1062,7 +1105,7 @@ verificationcode = SHA1(filelist)
 
 <h2 id="710-package-checksum-field">7.10 Package checksum field <a name="7.10"></a></h2>
 <h3 id="7101-description">7.10.1 Description</h3>
-<p>Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The <a href="https://tools.ietf.org/html/rfc3174">SHA-1</a> algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.</p>
+<p>Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The <a href="https://tools.ietf.org/html/rfc3174">SHA1</a> algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.</p>
 <p><strong>Table 22 — Metadata for the package checksum field</strong></p>
 <table>
 <thead>
@@ -1082,7 +1125,7 @@ verificationcode = SHA1(filelist)
 </tr>
 <tr>
 <td>Algorithm</td>
-<td>Algorithms that can be used: <a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA224</code></a>, <a href="https://tools.ietf.org/html/rfc6234"><code>SHA256</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA384</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA512</code></a>, <a href="https://tools.ietf.org/html/rfc1319"><code>MD2</code></a>, <a href="https://tools.ietf.org/html/rfc1320"><code>MD4</code></a>, <a href="https://tools.ietf.org/html/rfc1321"><code>MD5</code></a>, <a href="https://groups.csail.mit.edu/cis/md6/"><code>MD6</code></a></td>
+<td>Algorithms that can be used: <a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA224</code></a>, <a href="https://tools.ietf.org/html/rfc6234"><code>SHA256</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA384</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA512</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-3"><code>SHA3-256</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-3"><code>SHA3-384</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-3"><code>SHA3-512</code></a>, <a href="https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2"><code>BLAKE2b-256</code></a>, <a href="https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2"><code>BLAKE2b-384</code></a>, <a href="https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2"><code>BLAKE2b-512</code></a>, <a href="https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE3"><code>BLAKE3</code></a>, <a href="https://tools.ietf.org/html/rfc1319"><code>MD2</code></a>, <a href="https://tools.ietf.org/html/rfc1320"><code>MD4</code></a>, <a href="https://tools.ietf.org/html/rfc1321"><code>MD5</code></a>, <a href="https://groups.csail.mit.edu/cis/md6/"><code>MD6</code></a>, <a href="https://en.wikipedia.org/wiki/Adler-32"><code>ADLER32</code></a></td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1255,7 +1298,7 @@ verificationcode = SHA1(filelist)
 </ul>
 </li>
 </ul>
-<p>If the Concluded License is not the same as the Declared License (<a href="#7.15">7.15</a>), a written explanation should be provided in the Comments on License field (<a href="#7.16">7.16</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (<a href="#7.16">7.16</a>) is preferred.</p>
+<p>If the Concluded License is not the same as the Declared License (<a href="#7.15">7.15</a>), a written explanation should be provided in the Comments on License field (<a href="#7.16">7.16</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (<a href="#7.16">7.16</a>) is preferred. If the Concluded License field is not present in a package, it implies an equivalent meaning to <code>NOASSERTION</code>.</p>
 <p>The metadata for the concluded license field is shown in Table 25.</p>
 <p><strong>Table 25 — Metadata for the concluded license field</strong></p>
 <table>
@@ -1268,11 +1311,11 @@ verificationcode = SHA1(filelist)
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1315,22 +1358,17 @@ verificationcode = SHA1(filelist)
 <p>This field is to contain a list of all licenses found in the package. The relationship between licenses (i.e., conjunctive, disjunctive) is not specified in this field – it is simply a listing of all licenses found.</p>
 <p>The options to populate this field are limited to:</p>
 <ul>
-<li>The SPDX License List short form identifier, if a detected license is on the SPDX License List;</li>
-<li>A user defined license reference denoted by <code>LicenseRef-&lt;idstring&gt;</code> (for a license not on the SPDX License List);</li>
+<li>A valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>;</li>
 <li><code>NONE</code>, if no license information is detected in any of the files; or</li>
 <li>
 <p><code>NOASSERTION</code>, if:</p>
 <ul>
-<li>
-<p>the SPDX document creator has made no attempt to determine this field; or</p>
-</li>
-<li>
-<p>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</p>
-</li>
+<li>the SPDX document creator has made no attempt to determine this field; or</li>
+<li>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</li>
 </ul>
 </li>
 </ul>
-<p>The metadata for the all license information from files field is shown in Table 26.</p>
+<p>If the All Licenses Information from Files field is not present for a package and <code>FilesAnalyzed</code> field (<a href="#7.8">7.8</a>) for that same pacakge is <code>true</code> or omitted, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for all license information from files field is shown in Table 26.</p>
 <p><strong>Table 26 — Metadata for the all licenses information from files field</strong></p>
 <table>
 <thead>
@@ -1342,15 +1380,15 @@ verificationcode = SHA1(filelist)
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>0..* if <code>FilesAnalyzed</code> (<a href="#7.8">7.8</a>) is <code>true</code> or omitted, 0..0 (shall be omitted) if <code>FilesAnalyzed</code> is <code>false</code>.</td>
+<td>0..* (optional) if <code>FilesAnalyzed</code> (<a href="#7.8">7.8</a>) is <code>true</code> or omitted, 0..0 (must be omitted) if <code>FilesAnalyzed</code> is <code>false</code>.</td>
 </tr>
 <tr>
 <td>Format</td>
-<td><code>&lt;shortIdentifier&gt;</code> (<a href="../SPDX-license-list/#A.1">Annex A</a>) | ["DocumentRef-"<code>[idstring]</code>:]"LicenseRef-"<code>[idstring]</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><ul><li> "DocumentRef-"<code>[idstring]</code> is an optional reference to an external SPDX document as described in <a href="../document-creation-information/#6.6">6.6</a>.</li><li><code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code>, or <code>-</code>. </li></ul></td>
+<td><code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1397,7 +1435,7 @@ verificationcode = SHA1(filelist)
 </ul>
 </li>
 </ul>
-<p>The metadata for the declared license field is shown in Table 27.</p>
+<p>If the Declared License field is not present for a package, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the declared license field is shown in Table 27.</p>
 <p><strong>Table 27 — Metadata for the declared license field</strong></p>
 <table>
 <thead>
@@ -1409,11 +1447,11 @@ verificationcode = SHA1(filelist)
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1516,7 +1554,7 @@ post-dates the license change.&lt;/text&gt;
 </ul>
 </li>
 </ul>
-<p>The metadata for the copyright text field is shown in Table 29.</p>
+<p>If the Copyright Text field is not present for a package, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the copyright text field is shown in Table 29.</p>
 <p><strong>Table 29 — Metadata for the copyright text field</strong></p>
 <table>
 <thead>
@@ -1528,11 +1566,11 @@ post-dates the license change.&lt;/text&gt;
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1869,6 +1907,176 @@ software developed by the AT&amp;T.
     &lt;/attributionText&gt;
 &lt;/Package&gt;
 </code></pre></div>
+
+<h2 id="724-primary-package-purpose-field">7.24 Primary Package Purpose field <a name="7.24"></a></h2>
+<h3 id="7241-description">7.24.1 Description</h3>
+<p>This field provides information about the primary purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package. The options to populated this field are limited to:</p>
+<p><code>APPLICATION</code> if the package is a software application;
+<code>FRAMEWORK</code> if the package is a software framework;
+<code>LIBRARY</code> if the package is a software library;
+<code>CONTAINER</code> if the package refers to a container image which can be used by a container runtime application;
+<code>OPERATING-SYSTEM</code> if the package refers to an operating system;
+<code>DEVICE</code> if the package refers to a chipset, processor, or electronic board;
+<code>FIRMWARE</code> if the package provides low level control over a device's hardware;
+<code>SOURCE</code> if the package is a collection of source files;
+<code>ARCHIVE</code> if the package refers to an archived collection of files (.tar, .zip, etc);
+<code>FILE</code> if the package is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc);
+<code>INSTALL</code> if the package is used to install software on disk;
+<code>OTHER</code> if the package doesn't fit into the above categories.</p>
+<p>The metadata for the Primary Package Purpose field is shown in Table 36.</p>
+<p><strong>Table 36 — Metadata for the primary package purpose field</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>APPLICATION</code> | <code>FRAMEWORK</code> | <code>LIBRARY</code> | <code>CONTAINER</code> | <code>OPERATING-SYSTEM</code> | <code>DEVICE</code> | <code>FIRMWARE</code> | <code>SOURCE</code> | <code>ARCHIVE</code> | <code>FILE</code> | <code>INSTALL</code> | <code>OTHER</code> |</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7242-intent">7.24.2 Intent</h3>
+<p>This field is a reasonable estimate of the most likely package usage from the producer and consumer perspective from which both parties can draw conclusions about the context in which the package exists.</p>
+<h3 id="7243-examples">7.24.3 Examples</h3>
+<p>EXAMPLE 1 Tag: <code>PrimaryPackagePurpose:</code></p>
+<div class="codehilite"><pre><span></span><code>PrimaryPackagePurpose: FRAMEWORK
+</code></pre></div>
+
+<p>EXAMPLE 2 RDF: Property <code>spdx:purpose</code> in class <code>spdx:Package</code></p>
+<div class="codehilite"><pre><span></span><code>&lt;Package rdf:about=&quot;cluster-api&quot;&gt;
+    &lt;primaryPackagePurpose rdf:resource=&quot;packagePurpose_container&quot; /&gt;
+&lt;/Package&gt;
+</code></pre></div>
+
+<h2 id="725-release-date">7.25 Release Date <a name="7.25"></a></h2>
+<h3 id="7251-description">7.25.1 Description</h3>
+<p>This field provides a place for recording the date the package was released.</p>
+<p>Table 37 — Metadata for the release date</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>YYYY-MM-DDThh:mm:ssZ</code><br>where:<br><ul><li><code>YYYY</code> is year</li><li><code>MM</code> is month with leading zero</li><li><code>DD</code> is day with leading zero</li><li><code>T</code> is delimiter for time</li><li><code>hh</code> is hours with leading zero in 24 hour time</li><li><code>mm</code> is minutes with leading zero</li><li><code>ss</code> is seconds with leading zero</li><li><code>Z</code> is universal time indicator</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7252-intent">7.25.2 Intent</h3>
+<p>The release date is helpful for strict identification of the prerequisite assumptions of usage.</p>
+<h3 id="7253-examples">7.25.3 Examples</h3>
+<p>EXAMPLE 1 Tag: <code>ReleaseDate:</code></p>
+<div class="codehilite"><pre><span></span><code>ReleaseDate: 2010-01-29T18:30:22Z
+</code></pre></div>
+
+<p>EXAMPLE 2 RDF: Property <code>spdx:releaseDate</code> in class <code>spdx:Package</code></p>
+<div class="codehilite"><pre><span></span><code>&lt;Package rdf:about=&quot;...&quot;&gt;
+    &lt;releaseDate&gt; 2010-01-29T18:30:22Z &lt;/releaseDate&gt;
+&lt;/Package&gt;
+</code></pre></div>
+
+<h2 id="726-built-date">7.26 Built Date <a name="7.26"></a></h2>
+<h3 id="7261-description">7.26.1 Description</h3>
+<p>This field provides a place for recording the actual date the package was built.</p>
+<p>Table 38 — Metadata for the built date</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>YYYY-MM-DDThh:mm:ssZ</code><br>where:<br><ul><li><code>YYYY</code> is year</li><li><code>MM</code> is month with leading zero</li><li><code>DD</code> is day with leading zero</li><li><code>T</code> is delimiter for time</li><li><code>hh</code> is hours with leading zero in 24 hour time</li><li><code>mm</code> is minutes with leading zero</li><li><code>ss</code> is seconds with leading zero</li><li><code>Z</code> is universal time indicator</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7262-intent">7.26.2 Intent</h3>
+<p>The date when the package was built is helpful for strict identification of the prerequisite assumptions of usage.<br />
+Ideally it should be recorded from build system tools directly or the creation date of the package itself.</p>
+<h3 id="7263-examples">7.26.3 Examples</h3>
+<p>EXAMPLE 1 Tag: <code>BuiltDate:</code></p>
+<div class="codehilite"><pre><span></span><code>BuiltDate: 2010-01-29T18:30:22Z
+</code></pre></div>
+
+<p>EXAMPLE 2 RDF: Property <code>spdx:builtDate</code> in class <code>spdx:Package</code></p>
+<div class="codehilite"><pre><span></span><code>&lt;Package rdf:about=&quot;...&quot;&gt;
+    &lt;builtDate&gt; 2010-01-29T18:30:22Z &lt;/builtDate&gt;
+&lt;/Package&gt;
+</code></pre></div>
+
+<h2 id="727-valid-until-date">7.27 Valid Until Date <a name="7.27"></a></h2>
+<h3 id="7271-description">7.27.1 Description</h3>
+<p>This field provides a place for recording the end of the support period for a package from the supplier.</p>
+<p>Table 39 — Metadata for the valid until date</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>YYYY-MM-DDThh:mm:ssZ</code><br>where:<br><ul><li><code>YYYY</code> is year</li><li><code>MM</code> is month with leading zero</li><li><code>DD</code> is day with leading zero</li><li><code>T</code> is delimiter for time</li><li><code>hh</code> is hours with leading zero in 24 hour time</li><li><code>mm</code> is minutes with leading zero</li><li><code>ss</code> is seconds with leading zero</li><li><code>Z</code> is universal time indicator</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7272-intent">7.27.2 Intent</h3>
+<p>The date when support for the package ends from the supplier.  Usage is considered valid until this date.</p>
+<h3 id="7273-examples">7.27.3 Examples</h3>
+<p>EXAMPLE 1 Tag: <code>ValidUntilDate:</code></p>
+<div class="codehilite"><pre><span></span><code>ValidUntilDate: 2030-12-30T18:00:00Z
+</code></pre></div>
+
+<p>EXAMPLE 2 RDF: Property <code>spdx:validUntilDate</code> in class <code>spdx:Package</code></p>
+<div class="codehilite"><pre><span></span><code>&lt;Package rdf:about=&quot;...&quot;&gt;
+    &lt;validUntilDate&gt; 2030-12-30T18:00:00Z &lt;/validUntilDate&gt;
+&lt;/Package&gt;
+</code></pre></div>
               
             </div>
           </div><footer>
@@ -1909,6 +2117,7 @@ software developed by the AT&amp;T.
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Clause 5: Composition of an SPDX document - specification v2.2.2</title>
+    <title>Clause 5: Composition of an SPDX document - specification v2.3.0</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
         <link href="../css/style.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -32,7 +33,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> specification v2.2.2
+          <a href=".." class="icon icon-home"> specification v2.3.0
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -43,10 +44,6 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="..">Copyright</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../foreword/">Foreword</a>
                 </li>
               </ul>
               <ul>
@@ -172,6 +169,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-to-use/">Annex K: How To Use SPDX in Different Scenarios</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../bibliography/">Bibliography</a>
                 </li>
               </ul>
@@ -182,7 +183,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">specification v2.2.2</a>
+          <a href="..">specification v2.3.0</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -201,7 +202,7 @@
                 <h1 id="5-composition-of-an-spdx-document">5 Composition of an SPDX document</h1>
 <h2 id="51-what-this-specification-covers">5.1 What this specification covers <a name="5.1"></a></h2>
 <p>This document contains the specification for an SPDX document, which is made up of a set of one or more sections, instances of which contain information in the form of <em>fields</em>. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX document, sections may be organized, as follows:</p>
-<p><img alt="Overview of SPDX document contents" src="../img/spdx-2.2.2-document.png" /></p>
+<p><img alt="Overview of SPDX document contents" src="../img/spdx-2.3-document.png" /></p>
 <p>The object model is illustrated by <a href="../RDF-object-model-and-identifier-syntax/">Annex C</a>.</p>
 <h2 id="52-sections">5.2 Sections <a name="5.2"></a></h2>
 <h3 id="521-spdx-document-creation-information-section">5.2.1 SPDX document creation information section <a name="5.2.1"></a></h3>
@@ -223,7 +224,7 @@
 </ul>
 <p>Note that some of these could be represented in SPDX as a file as well.</p>
 <p>In an SPDX document, relationship elements can be used to indicate relationships between packages, such as dependency relationships.</p>
-<p>Cardinality: Optional, one or many.</p>
+<p>Cardinality: Optional, zero or many.</p>
 <p>See <a href="../package-information/">Clause 7</a> for details of the fields in this kind of section.</p>
 <p>In <code>tag:value</code> format, the order in which package and files occur is syntactically significant.</p>
 <ul>
@@ -235,8 +236,8 @@
 <li>Annotations and relationships for the package may appear after the package information before any file information.</li>
 </ul>
 <h3 id="523-file-information-section">5.2.3 File information section <a name="5.2.3"></a></h3>
-<p>One instance of the file information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
-<p>Cardinality: Optional, one or many.</p>
+<p>One instance of the file information may exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
+<p>Cardinality: Optional, zero or many.</p>
 <p>See <a href="../file-information/">Clause 8</a> for details of the fields in this kind of section.</p>
 <p>When implementing <code>tag:value</code> format, the positioning of file elements is syntactically significant:</p>
 <ul>
@@ -250,9 +251,9 @@
 </ul>
 <p>When implementing file information in RDF, the <code>spdx:hasFile</code> property is used to associate the package with the file.</p>
 <h3 id="524-snippet-information-section">5.2.4 Snippet information section <a name="5.2.4"></a></h3>
-<p>Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.</p>
+<p>Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license or copied from a place with a known vulnerability.</p>
 <p>Each instance of Snippet Information shall be associated with a specific file in an SPDX document.</p>
-<p>Cardinality: Optional, one or many.</p>
+<p>Cardinality: Optional, zero or many.</p>
 <p>See <a href="../snippet-information/">Clause 9</a> for details of the fields in this kind of section.</p>
 <p>When implementing <code>tag:value</code> format, the positioning of snippet elements is syntactically significant:</p>
 <ul>
@@ -264,15 +265,15 @@
 <h3 id="525-other-licensing-information-detected-section">5.2.5 Other licensing information detected section <a name="5.2.5"></a></h3>
 <p>This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>. The SPDX License List can also be found in <a href="../SPDX-license-list/">Annex A</a>.</p>
 <p>One instance shall be created for every unique license or licensing information being referenced that does not match one of the licenses on the SPDX License List. </p>
-<p>Cardinality: Optional, one or many.</p>
+<p>Cardinality: Optional, zero or many.</p>
 <p>See <a href="../other-licensing-information-detected/">Clause 10</a> for details of the fields in this kind of section.</p>
 <h3 id="526-relationships-between-spdx-elements-information-section">5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a></h3>
 <p>Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. </p>
-<p>Cardinality: Optional, one or many.</p>
+<p>Cardinality: Optional, zero or many.</p>
 <p>See <a href="../relationships-between-SPDX-elements/">Clause 11</a> for details of the fields in this kind of section.</p>
 <h3 id="527-annotations-information-section">5.2.7 Annotations information section <a name="5.2.7"></a></h3>
 <p>Annotations permit the addition of information to validate and clarify ambiguous SPDX elements (packages, files or snippets).</p>
-<p>Cardinality: Optional, one or many.</p>
+<p>Cardinality: Optional, zero or many.</p>
 <p>See <a href="../annotations/">Clause 12</a> for details of the fields in this kind of section.</p>
 <p>This section is now the preferred home for review information.</p>
 <h3 id="528-review-information-section">5.2.8 Review information section <a name="5.2.8"></a></h3>
@@ -327,6 +328,7 @@
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
